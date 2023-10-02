@@ -1,4 +1,6 @@
+import PostCard from "@/components/PostCard"
 import axios from "axios"
+import './posts.css'
 
 async function loadPosts() {
     const res = await axios('https://jsonplaceholder.typicode.com/posts')
@@ -9,15 +11,12 @@ async function loadPosts() {
 export default async function PostsPage() {
     const posts = await loadPosts()
     return (
-        <section>
+        <div className="grid">
             {
                 posts.slice(0, 5).map(post => (
-                    <div key={post.id}>
-                        <h1>{post.id}. {post.title}</h1>
-                        <p>{post.body}</p>
-                    </div>
+                    <PostCard post={post} key={post.id} />
                 ))
             }
-        </section>
+        </div>
     )
 }

@@ -1,9 +1,12 @@
 import Link from "next/link"
+import './Navbar.css'
 
 export default function Navbar() {
     return (
-        <nav>
-            <h1>Navbar</h1>
+        <nav className="navbar py-5">
+            <Link href={'/'}>
+                <h1 className="text-3xl font-bold">Nextjs Curso</h1>
+            </Link>
             <ul>
                 <li>
                     <Link href={'/'}>Home</Link>
@@ -13,7 +16,10 @@ export default function Navbar() {
                 </li>
                 <li>
                     <Link href={'/tienda'}>Tienda</Link>
-                </li>                
+                </li>
+                <li>
+                    <Link href={'/posts'}>Posts</Link>
+                </li>
             </ul>
         </nav>
     )
